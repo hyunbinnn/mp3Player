@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_sheet_shape"
+    android:clickable="true"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="106dp"
+    app:layout_behavior="@string/bottom_sheet_behavior"
+    >
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_horizontal_rule_24" />
+
+    <include
+        android:id="@+id/bottom_sheet_small"
+        layout="@layout/bottom_sheet_small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="20dp"
+            android:progressTint="#B3000000"
+            android:thumbTint="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleLarge" />
+
+        <ImageView
+            android:id="@+id/ivPlayLarge"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="32dp"
+            android:onClick="onClick"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivNextBottom"
+            app:layout_constraintStart_toEndOf="@+id/ivPreviousBottom"
+            app:layout_constraintTop_toBottomOf="@+id/tvDurationStart"
+            app:srcCompat="@drawable/ic_baseline_play_arrow_24" />
+
+        <TextView
+            android:id="@+id/tvSingerLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Currently not playing"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/ivAlbumImageLarge"
+            app:layout_constraintStart_toStartOf="@+id/ivAlbumImageLarge"
+            app:layout_constraintTop_toBottomOf="@+id/ivAlbumImageLarge" />
+
+        <ImageView
+            android:id="@+id/ivAlbumImageLarge"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:layout_marginTop="56dp"
+            android:background="@color/white"
+            android:elevation="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_music_note_24" />
+
+        <TextView
+            android:id="@+id/tvTitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/tvSingerLarge"
+            app:layout_constraintStart_toStartOf="@+id/tvSingerLarge"
+            app:layout_constraintTop_toBottomOf="@+id/tvSingerLarge" />
+
+        <TextView
+            android:id="@+id/tvDurationStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="00:00"
+            app:layout_constraintStart_toStartOf="@+id/seekBar"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+        <TextView
+            android:id="@+id/tvDurationEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="00:00"
+            app:layout_constraintEnd_toEndOf="@+id/seekBar"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+        <ImageView
+            android:id="@+id/ivNextBottom"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:onClick="onClick"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivPlayLarge"
+            app:layout_constraintTop_toTopOf="@+id/ivPlayLarge"
+            app:srcCompat="@drawable/ic_baseline_skip_next_24" />
+
+        <ImageView
+            android:id="@+id/ivPreviousBottom"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:onClick="onClick"
+            app:layout_constraintEnd_toStartOf="@+id/ivPlayLarge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivPlayLarge"
+            app:srcCompat="@drawable/ic_baseline_skip_previous_24" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
